@@ -1,0 +1,92 @@
+HOW TO EDIT YOUR PORTFOLIO
+==========================
+
+All content lives in a single file:
+  src/routes/index.tsx
+
+---------------------------------------------
+1. PERSONAL INFO
+---------------------------------------------
+Near the top of src/routes/index.tsx you will find these constants:
+
+  const NAME     = "Jewius David Devanesan";
+  const TITLE    = "AI/ML Engineering Student";
+  const EMAIL    = "ajddevanesan@gmail.com";
+  const PHONE    = "+91 7826001320";
+  const LINKEDIN = "https://www.linkedin.com/";
+  const GITHUB   = "https://github.com/";
+
+Change the strings on the right to update your name, contact info and links.
+
+---------------------------------------------
+2. RESUME PDF
+---------------------------------------------
+The resume is stored at:
+  src/assets/resume.pdf.asset.json
+
+To swap the resume:
+  1) Ask Lovable to "replace my resume with this file" and attach the new PDF.
+  2) Or upload a new PDF through the chat and tell Lovable to use it.
+
+---------------------------------------------
+3. PROJECTS  (image + heading + about + holographic details)
+---------------------------------------------
+Find the `projects` array in src/routes/index.tsx. Each project looks like:
+
+  {
+    title:      "Moisture Irrigation",
+    image:      projectMoisture,          // imported at top of file
+    meta:       "IoT · Automation",
+    about:      "Short one-line description shown on the card.",
+    stack:      ["Python", "Sensors", "Automation"],
+    objectives: ["Objective 1", "Objective 2", "Objective 3"],
+    advantages: ["Advantage 1", "Advantage 2", "Advantage 3"],
+    datasets:   ["Dataset / source 1", "Dataset / source 2"],
+    info:       "Long paragraph shown inside the holographic modal.",
+  }
+
+To change a project image:
+  1) Upload a new image in chat, OR ask Lovable to generate one.
+  2) Save it to  src/assets/your-image.jpg
+  3) At the top of index.tsx, add:
+        import yourImage from "@/assets/your-image.jpg";
+  4) Use it in the project entry:
+        image: yourImage,
+
+---------------------------------------------
+4. CERTIFICATES  (with hover image)
+---------------------------------------------
+Find the `certificates` array in src/routes/index.tsx. Each entry is:
+
+  {
+    title:  "Python Fundamentals",
+    issuer: "Self-paced program",
+    focus:  "Core Python, data structures, scripting fundamentals",
+    image:  certPython,     // imported at top of file
+  }
+
+To replace a certificate image with YOUR real certificate:
+  1) Save your certificate image to  src/assets/cert-python.jpg
+     (overwrite the existing file, keep the same filename for zero code edits)
+  2) Or use a new filename and update the import at the top of index.tsx:
+        import certPython from "@/assets/my-real-python-cert.jpg";
+
+Recommended image size: 1280 x 960 (landscape, JPG or PNG).
+
+---------------------------------------------
+5. SKILLS, STRENGTHS, EDUCATION
+---------------------------------------------
+Search src/routes/index.tsx for:
+  - skillGroups   -> languages / web / tools lists
+  - strengths     -> soft-skill bullet list
+  - the "About" component -> education block
+
+---------------------------------------------
+TIP
+---------------------------------------------
+The easiest way is always to ask Lovable in chat, e.g.
+  "Change my email to newemail@example.com"
+  "Replace the Python certificate image with the one I just uploaded"
+  "Add a new project called XYZ"
+
+Lovable will make the edits for you.
